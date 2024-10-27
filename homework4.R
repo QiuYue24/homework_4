@@ -34,13 +34,15 @@ gender_inequality <- gender_inequality %>%
 
 ```
 
+
+
 ```{r}
 # 合并数据并计算性别不平等指数差异
 #str()查看数据结构，得到geojson文件的内容
 #head()查看前几行数据
 world_data <- world_map %>%
   left_join(gender_inequality, by = c("ISO" = "country_code")) %>%
-  mutate(inequality_difference = inequality_2019 - inequality_2010)
+  mutate(inequality_difference = 2019 - 2010)
 ```
 
 
