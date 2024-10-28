@@ -14,7 +14,7 @@ world_map <- st_read(here("data","World_Countries_(Generalized)_9029012925078512
 
 
 ```{r}
-# 性别不平等csv将国家名称转换为 ISO2 标准代码，world_map已有ISO2
+# Gender inequality csv converts country names to ISO2 standard codes, world_map already has ISO2
 gender_inequality <- gender_inequality %>%
   mutate(country_code = countrycode(country_name, "country.name", "iso2c"))
 
@@ -23,9 +23,9 @@ gender_inequality <- gender_inequality %>%
 
 
 ```{r}
-# 合并数据并计算性别不平等指数差异
-#str()查看数据结构，得到geojson文件的内容
-#head()查看前几行数据
+# Merge data and calculate the difference in gender inequality index
+#str() to view the data structure and get the content of the geojson file
+#head() to view the first few rows of data
 library(janitor)
 world_data <- world_map %>%
   left_join(gender_inequality, by = c("ISO" = "country_code")) %>%
